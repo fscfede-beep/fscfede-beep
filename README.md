@@ -12,11 +12,11 @@ My focus is failure-boundary engineering: async resource ownership, cancellation
 
 ### [Verifiable Agent Control Plane](https://github.com/fscfede-beep/verifiable-agent-control-plane)
 
-A dependency-free Python reference implementation for fail-closed agent execution with exact-state binding, deterministic revalidation, effect readback, replay prevention, and hash-bound receipts.
+An installable, runtime-dependency-free Python reference implementation for fail-closed agent execution with exact-state binding, deterministic revalidation, effect readback, replay prevention, and hash-bound receipts.
 
 The test suite covers stale-state rejection, duplicate intent rejection, action allowlisting, secret-like payload rejection, readback mismatch, receipt-chain verification, tamper detection, and replay prevention.
 
-**Release evidence:** [`v0.1.0`](https://github.com/fscfede-beep/verifiable-agent-control-plane/releases/tag/v0.1.0) is tagged at `848ceedbcb4e92ca2290f99b16e29421385f9b75`; that exact release tag passed the unit suite on Python **3.11, 3.12, and 3.13** in [GitHub Actions run #6](https://github.com/fscfede-beep/verifiable-agent-control-plane/actions/runs/33803306325).
+**Release evidence:** [`v0.2.0`](https://github.com/fscfede-beep/verifiable-agent-control-plane/releases/tag/v0.2.0) is tagged at `ed3bb2684743376fdf2769ee378ca614c913e3d4`; that exact release tag passed source installation, the **16-test** suite, and outside-checkout import verification on Python **3.11, 3.12, and 3.13** in [GitHub Actions run #11](https://github.com/fscfede-beep/verifiable-agent-control-plane/actions/runs/33805162344).
 
 **Boundary:** sanitized reference implementation; no private production state, credentials, provider IDs, or deployment configuration.
 
