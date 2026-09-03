@@ -6,6 +6,14 @@ I investigate and build reliable AI agent systems: safe tool execution, async li
 
 My public engineering work focuses on failure boundaries that are easy to miss in agentic systems: cancellation during ownership transfer, fail-closed execution, retry semantics, state reconciliation, and evidence that distinguishes intention from actual effect.
 
+## Public reference implementation
+
+- **[Verifiable Agent Control Plane](https://github.com/fscfede-beep/verifiable-agent-control-plane)**
+  - Dependency-free Python reference for fail-closed agent execution, exact-state binding, deterministic revalidation, effect readback, and hash-bound receipts.
+  - Local validation: 14/14 deterministic tests PASS + Python compile PASS.
+  - GitHub Actions: Python 3.11 / 3.12 / 3.13 — all jobs PASS ([run #33769915677](https://github.com/fscfede-beep/verifiable-agent-control-plane/actions/runs/33769915677)).
+  - This is a new sanitized reference extraction of reliability patterns, not a publication of a private production control plane.
+
 ## Selected public engineering work
 
 - **OpenAI Codex — root-cause analysis + public reference implementation**
