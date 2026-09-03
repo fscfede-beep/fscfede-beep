@@ -16,6 +16,8 @@ A dependency-free Python reference implementation for fail-closed agent executio
 
 The test suite covers stale-state rejection, duplicate intent rejection, action allowlisting, secret-like payload rejection, readback mismatch, receipt-chain verification, tamper detection, and replay prevention.
 
+**Public CI:** current `main` passed the unit suite on Python **3.11, 3.12, and 3.13** in [GitHub Actions run #3](https://github.com/fscfede-beep/verifiable-agent-control-plane/actions/runs/33800697755).
+
 **Boundary:** sanitized reference implementation; no private production state, credentials, provider IDs, or deployment configuration.
 
 ## Public engineering evidence
@@ -55,9 +57,11 @@ The test suite covers stale-state rejection, duplicate intent rejection, action 
 - canonical-state recovery and effect verification;
 - verifiable control planes for consequential agent actions.
 
-## Product work
+## Product and systems work
 
-- **[RUMBO IA](https://rumbo.verso.fans)** — human-controlled AI CRM and automation for small businesses in Latin America.
+- **[RUMBO IA repository](https://github.com/fscfede-beep/Rumbo)** — human-controlled AI CRM and workflow automation with public privacy and verification gates.
+- **[VAE Bindings](https://github.com/fscfede-beep/vae-bindings)** — public privacy-preserving commitments and GitHub attestations for agent work-unit bindings.
+- **[RUMBO IA website](https://rumbo.verso.fans)** — product surface for small businesses in Latin America.
 - **[Technical portfolio](https://sebastian-ai-workflow-reliability.miniup.app)** — selected work in AI workflow and agent reliability.
 
 ## Reliability thesis
