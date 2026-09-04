@@ -2,6 +2,8 @@
 
 **AI Systems & Agent Reliability Engineer · Founder, RUMBO IA**
 
+Public surfaces: **[RUMBO IA](https://rumbo.verso.fans)** · **[@RumboAGI on X](https://x.com/RumboAGI)**
+
 I build agentic systems where **intent, authority, execution, observed effect, and promotion are separate, testable states**.
 
 `INTENT → AUTHORITY → PREFLIGHT → EXECUTION → READBACK → FALSIFICATION → CLOSURE`
@@ -72,8 +74,10 @@ The test suite covers stale-state rejection, duplicate intent rejection, action 
 ## Product and systems work
 
 - **[RUMBO IA repository](https://github.com/fscfede-beep/Rumbo)** — human-controlled AI CRM and workflow automation with public privacy and verification gates.
+- **[RUMBO Guardian](https://github.com/fscfede-beep/rumbo-guardian)** — privacy-first, local-first security intelligence with explainable scoring and a tamper-evident SHA-256 Evidence Ledger.
 - **[VAE Bindings](https://github.com/fscfede-beep/vae-bindings)** — public privacy-preserving commitments and GitHub attestations for agent work-unit bindings.
 - **[RUMBO IA website](https://rumbo.verso.fans)** — product surface for small businesses in Latin America.
+- **[@RumboAGI on X](https://x.com/RumboAGI)** — public product, evidence, and engineering updates.
 - **[Technical portfolio](https://sebastian-ai-workflow-reliability.miniup.app)** — selected work in AI workflow and agent reliability.
 
 ## Reliability thesis
