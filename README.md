@@ -31,6 +31,7 @@ The test suite covers stale-state rejection, duplicate intent rejection, action 
 - Authored [PR #730 — optionally consume task prompt files](https://github.com/openai/codex-plugin-cc/pull/730), implementing the smallest opt-in fix proposed in [issue #622](https://github.com/openai/codex-plugin-cc/issues/622).
 - The patch adds `--prompt-file-consume` with `READ → DELETE → DISPATCH` ordering, preserves ordinary `--prompt-file` behavior, and rejects consume mode without a prompt file.
 - Validation on the exact upstream base: RED 1/3 → GREEN 3/3 focused runtime regressions, 28/28 non-runtime tests, Node syntax check, TypeScript compile, version check, and `git diff --check` PASS. Upstream workflow execution is currently gated on maintainer approval for fork Actions; I do **not** claim merge or acceptance.
+- An independent public reviewer later endorsed the `READ → DELETE → DISPATCH` ownership order and the three regressions. I classify that only as independent technical review; formal maintainer/OpenAI status was not verified.
 
 ### OpenAI Go SDK
 
@@ -39,6 +40,7 @@ The test suite covers stale-state rejection, duplicate intent rejection, action 
 
 ### OpenAI Agents SDK
 
+- Authored [PR #4868 — reset compaction response-chain state after a successful `pop_item()`](https://github.com/openai/openai-agents-python/pull/4868), fixing [issue #4867](https://github.com/openai/openai-agents-python/issues/4867). RED on upstream `main`: 1 failed / 2 passed; GREEN: 3/3 focused regressions and 58/58 tests in the affected file, with Ruff, mypy, Pyright, and `git diff --check` passing. Upstream fork CI is awaiting workflow approval; no merge or acceptance is claimed.
 - Authored [#4747 — PTY teardown can be abandoned after registry removal](https://github.com/openai/openai-agents-python/issues/4747), focused on cancellation-safe resource ownership after registry removal.
 - Authored [#4749 — PTY startup cancellation can leak unregistered resources](https://github.com/openai/openai-agents-python/issues/4749), focused on the pre-registration ownership boundary.
 - Reviewed [PR #4750](https://github.com/openai/openai-agents-python/pull/4750) and [PR #4751](https://github.com/openai/openai-agents-python/pull/4751) around cleanup ownership, cancellation propagation, and regression coverage.
