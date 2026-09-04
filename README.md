@@ -24,6 +24,12 @@ The test suite covers stale-state rejection, duplicate intent rejection, action 
 
 > Independent public engineering activity. These links do not imply OpenAI employment, affiliation, endorsement, or maintainer status. Authorship and merge state are stated explicitly per item.
 
+### OpenAI Codex plugin for Claude Code
+
+- Authored [PR #730 — optionally consume task prompt files](https://github.com/openai/codex-plugin-cc/pull/730), implementing the smallest opt-in fix proposed in [issue #622](https://github.com/openai/codex-plugin-cc/issues/622).
+- The patch adds `--prompt-file-consume` with `READ → DELETE → DISPATCH` ordering, preserves ordinary `--prompt-file` behavior, and rejects consume mode without a prompt file.
+- Validation on the exact upstream base: RED 1/3 → GREEN 3/3 focused runtime regressions, 28/28 non-runtime tests, Node syntax check, TypeScript compile, version check, and `git diff --check` PASS. Upstream workflow execution is currently gated on maintainer approval for fork Actions; I do **not** claim merge or acceptance.
+
 ### OpenAI Go SDK
 
 - Authored [PR #885 — clarify Bedrock Mantle model-family API roots](https://github.com/openai/openai-go/pull/885), a documentation-only upstream contribution tied to [issue #812](https://github.com/openai/openai-go/issues/812). The change preserves the existing `/openai/v1` default and documents the explicit `BaseURL` path for model families whose AWS model card requires `/v1`.
