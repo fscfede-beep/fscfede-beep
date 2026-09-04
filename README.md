@@ -44,6 +44,7 @@ The test suite covers stale-state rejection, duplicate intent rejection, action 
 
 - Revalidated the code-mode tool-output boundary reported in [issue #42367](https://github.com/openai/codex/issues/42367), authored by another contributor.
 - Published a concrete reference implementation in my fork: [`fscfede-beep/codex@9e70016`](https://github.com/fscfede-beep/codex/commit/9e700160e7c77deb373610b58d05d5d54e060d82).
+- Published and merged [RUMBO PR #28 — Codex thread scope evidence](https://github.com/fscfede-beep/Rumbo/pull/28), a sanitized fail-closed scope-binding probe with 38/38 local regressions and exact-head privacy, scope-binding, and Vercel checks passing; no upstream mutation or root-cause claim.
 - I do **not** claim upstream merge, endorsement, or Rust compile/test PASS for that reference commit.
 
 ## Engineering case studies
