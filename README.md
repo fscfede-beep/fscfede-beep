@@ -22,7 +22,12 @@ The test suite covers stale-state rejection, duplicate intent rejection, action 
 
 ## Public engineering evidence
 
-> Independent public engineering activity. These links do not imply OpenAI employment, affiliation, endorsement, or upstream code authorship.
+> Independent public engineering activity. These links do not imply OpenAI employment, affiliation, endorsement, or maintainer status. Authorship and merge state are stated explicitly per item.
+
+### OpenAI Go SDK
+
+- Authored [PR #885 — clarify Bedrock Mantle model-family API roots](https://github.com/openai/openai-go/pull/885), a documentation-only upstream contribution tied to [issue #812](https://github.com/openai/openai-go/issues/812). The change preserves the existing `/openai/v1` default and documents the explicit `BaseURL` path for model families whose AWS model card requires `/v1`.
+- I do **not** claim merge or maintainer endorsement unless the upstream PR state later proves it.
 
 ### OpenAI Agents SDK
 
