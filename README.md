@@ -54,7 +54,7 @@ The test suite covers stale-state rejection, duplicate intent rejection, action 
 
 - Revalidated the code-mode tool-output boundary reported in [issue #42367](https://github.com/openai/codex/issues/42367), authored by another contributor.
 - Published a concrete reference implementation in my fork: [`fscfede-beep/codex@9e70016`](https://github.com/fscfede-beep/codex/commit/9e700160e7c77deb373610b58d05d5d54e060d82).
-- Published and merged [RUMBO PR #28 — Codex thread scope evidence](https://github.com/fscfede-beep/Rumbo/pull/28), a sanitized fail-closed scope-binding probe with 38/38 local regressions and exact-head privacy, scope-binding, and Vercel checks passing; no upstream mutation or root-cause claim.
+- Published and merged [RUMBO PR #28 — Codex thread scope evidence](https://github.com/RUMBO-IA/Rumbo/pull/28), a sanitized fail-closed scope-binding probe with 38/38 local regressions and exact-head privacy, scope-binding, and Vercel checks passing; no upstream mutation or root-cause claim.
 - I do **not** claim upstream merge, endorsement, or Rust compile/test PASS for that reference commit.
 
 ## Engineering case studies
@@ -75,8 +75,8 @@ The test suite covers stale-state rejection, duplicate intent rejection, action 
 
 ## Product and systems work
 
-- **[RUMBO IA repository](https://github.com/fscfede-beep/Rumbo)** — human-controlled AI CRM and workflow automation with public privacy and verification gates.
-- **[RUMBO Guardian](https://github.com/fscfede-beep/rumbo-guardian)** — privacy-first, local-first security intelligence with explainable scoring and a tamper-evident SHA-256 Evidence Ledger.
+- **[RUMBO IA repository](https://github.com/RUMBO-IA/Rumbo)** — human-controlled AI CRM and workflow automation with public privacy and verification gates.
+- **[RUMBO Guardian](https://github.com/RUMBO-IA/rumbo-guardian)** — privacy-first, local-first security intelligence with explainable scoring and a tamper-evident SHA-256 Evidence Ledger.
 - **[VAE Bindings](https://github.com/fscfede-beep/vae-bindings)** — public privacy-preserving commitments and GitHub attestations for agent work-unit bindings.
 - **[RUMBO IA website](https://rumbo.verso.fans)** — product surface for small businesses in Latin America.
 - **[@RumboAGI on X](https://x.com/RumboAGI)** — public product, evidence, and engineering updates.
