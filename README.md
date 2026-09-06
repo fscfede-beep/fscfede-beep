@@ -18,6 +18,10 @@ An installable, runtime-dependency-free Python reference implementation for fail
 
 The test suite covers stale-state rejection, duplicate intent rejection, action allowlisting, secret-like payload rejection, readback mismatch, receipt-chain verification, tamper detection, and replay prevention.
 
+**Developer quickstart:** [5-minute Reliability Quickstart](https://github.com/fscfede-beep/verifiable-agent-control-plane/blob/main/docs/QUICKSTART.md) walks through `INTENT → AUTHORITY → MATERIALIZATION → READBACK → RECEIPT → VERIFICATION`.
+
+**Technical deep dive:** [An accepted agent action is not necessarily executable](https://github.com/fscfede-beep/verifiable-agent-control-plane/blob/main/docs/STATE_DRIFT_AFTER_DECISION.md) explains `DECISION_ACCEPTED != EXECUTION_SAFE` and the exact pre-effect state-drift guard. Both assets are merged; current `main` is `000e5723737605dda30e68646e28f54448877967`, with 66 tests passing on Python 3.11/3.12/3.13 in [post-merge GitHub Actions run 34005553526](https://github.com/fscfede-beep/verifiable-agent-control-plane/actions/runs/34005553526).
+
 **Release evidence:** [`v0.2.0`](https://github.com/fscfede-beep/verifiable-agent-control-plane/releases/tag/v0.2.0) is tagged at `ed3bb2684743376fdf2769ee378ca614c913e3d4`; that exact release tag passed source installation, the **16-test** suite, and outside-checkout import verification on Python **3.11, 3.12, and 3.13** in [GitHub Actions run #11](https://github.com/fscfede-beep/verifiable-agent-control-plane/actions/runs/33805162344).
 
 **Boundary:** sanitized reference implementation; no private production state, credentials, provider IDs, or deployment configuration.
@@ -40,7 +44,7 @@ The test suite covers stale-state rejection, duplicate intent rejection, action 
 
 ### OpenAI Agents SDK
 
-- Authored [PR #4868 — reset compaction response-chain state after a successful `pop_item()`](https://github.com/openai/openai-agents-python/pull/4868), fixing [issue #4867](https://github.com/openai/openai-agents-python/issues/4867). RED on upstream `main`: 1 failed / 2 passed; GREEN: 3/3 focused regressions and 58/58 tests in the affected file, with Ruff, mypy, Pyright, and `git diff --check` passing. Upstream fork CI is awaiting workflow approval; no merge or acceptance is claimed.
+- Authored [PR #4868 — reset compaction response-chain state after a successful `pop_item()`](https://github.com/openai/openai-agents-python/pull/4868), fixing [issue #4867](https://github.com/openai/openai-agents-python/issues/4867). Current head `5702cf2d…` makes response-chain and history ownership explicit across compaction, destructive mutation, cancellation, and stale-publication boundaries. Fresh PR validation reports **69 focused tests** and **217 memory tests** passing, plus Ruff, mypy, Pyright, and `git diff --check`. Upstream Actions is `action_required` with 0 jobs, so I do **not** label it CI PASS or FAIL, and no merge or acceptance is claimed.
 - Authored [#4747 — PTY teardown can be abandoned after registry removal](https://github.com/openai/openai-agents-python/issues/4747), focused on cancellation-safe resource ownership after registry removal.
 - Authored [#4749 — PTY startup cancellation can leak unregistered resources](https://github.com/openai/openai-agents-python/issues/4749), focused on the pre-registration ownership boundary.
 - Reviewed [PR #4750](https://github.com/openai/openai-agents-python/pull/4750) and [PR #4751](https://github.com/openai/openai-agents-python/pull/4751) around cleanup ownership, cancellation propagation, and regression coverage.
