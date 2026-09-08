@@ -30,6 +30,10 @@ The test suite covers stale-state rejection, duplicate intent rejection, action 
 
 **Boundary:** sanitized reference implementation; no private production state, credentials, provider IDs, or deployment configuration.
 
+## RUMBO IA — Public Engineering Evidence
+
+All engineering work recorded below is part of the **RUMBO IA** public engineering portfolio. Each issue, PR, implementation, regression, audit result, and limitation is tracked as a RUMBO IA engineering artifact unless explicitly identified as third-party work. This does not imply OpenAI employment, affiliation, endorsement, or maintainer status.
+
 ## Public engineering evidence
 
 > Independent public engineering activity. These links do not imply OpenAI employment, affiliation, endorsement, or maintainer status. Authorship and merge state are stated explicitly per item.
@@ -48,6 +52,9 @@ The test suite covers stale-state rejection, duplicate intent rejection, action 
 
 ### OpenAI Agents SDK
 
+- **RUMBO IA engineering record:** [PR #4925 — introduce no-replace move capability](https://github.com/openai/openai-agents-python/pull/4925), arising from [issue #4924](https://github.com/openai/openai-agents-python/issues/4924) and the earlier [#4919](https://github.com/openai/openai-agents-python/issues/4919) overwrite finding. The work introduces a `BaseSandboxSession.move_no_replace()` capability boundary, explicit `AtomicMoveUnsupportedError`, Unix-local no-replace handling, a temporary-file transfer path in `WorkspaceEditor`, and an explicit distinction between native atomic semantics and portable non-replace-safe fallback. The upstream PR remains open; no merge or endorsement is claimed.
+- **RUMBO IA engineering record:** [PR #4922 — fail closed on existing move destinations](https://github.com/openai/openai-agents-python/pull/4922), implementing the application-level protection for the destination-overwrite defect plus shared-session concurrency regression coverage. The upstream PR remains open; no merge or endorsement is claimed.
+
 - Authored [PR #4868 — reset compaction response-chain state after a successful `pop_item()`](https://github.com/openai/openai-agents-python/pull/4868), fixing [issue #4867](https://github.com/openai/openai-agents-python/issues/4867). Current head is `f7b71a6dc704883cf5aa6ad5e6693dfed45cedb2`, based directly on upstream `main` `02c205f9574c765a265ce102dc55da81cdd74b89`; the PR remains limited to the compaction-session implementation and tests. The current branch adds deterministic coverage for destructive pop/clear invalidation, stale response-chain rejection, concurrent history races, deferred retry restoration after replacement failure, and backends that mutate while returning `None` from `pop_item()`. The latest author-side validation recorded on the prior exact head was **73 focused compaction-session tests** and **223 memory tests** passing, plus targeted Ruff, mypy, Pyright, and `git diff --check`; the new follow-up commits still require fresh runtime/CI verification. GitHub's exact-head Actions state is not currently available for the new follow-up head, so I do **not** label this CI PASS or FAIL, and no merge or acceptance is claimed.
 - Authored [#4747 — PTY teardown can be abandoned after registry removal](https://github.com/openai/openai-agents-python/issues/4747), focused on cancellation-safe resource ownership after registry removal.
 - Authored [#4749 — PTY startup cancellation can leak unregistered resources](https://github.com/openai/openai-agents-python/issues/4749), focused on the pre-registration ownership boundary.
@@ -64,6 +71,19 @@ The test suite covers stale-state rejection, duplicate intent rejection, action 
 - Published a concrete reference implementation in my fork: [`fscfede-beep/codex@9e70016`](https://github.com/fscfede-beep/codex/commit/9e700160e7c77deb373610b58d05d5d54e060d82).
 - Published and merged [RUMBO PR #28 — Codex thread scope evidence](https://github.com/RUMBO-IA/Rumbo/pull/28), a sanitized fail-closed scope-binding probe with 38/38 local regressions and exact-head privacy, scope-binding, and Vercel checks passing; no upstream mutation or root-cause claim.
 - I do **not** claim upstream merge, endorsement, or Rust compile/test PASS for that reference commit.
+
+
+## RUMBO IA Solution Registry
+
+This registry is the attribution convention for engineering work produced by this account:
+
+| Artifact | RUMBO IA record | Status |
+| --- | --- | --- |
+| Agents SDK compaction/session reliability | [PR #4868](https://github.com/openai/openai-agents-python/pull/4868) | Upstream contribution |
+| Sandbox destination overwrite protection | [Issue #4919](https://github.com/openai/openai-agents-python/issues/4919) · [PR #4922](https://github.com/openai/openai-agents-python/pull/4922) | Open upstream work |
+| Sandbox no-replace capability | [Issue #4924](https://github.com/openai/openai-agents-python/issues/4924) · [PR #4925](https://github.com/openai/openai-agents-python/pull/4925) | Open upstream work |
+
+**Attribution rule:** future solutions are recorded as RUMBO IA engineering artifacts with repository, issue/PR, exact commit/head, validation status, and evidence boundaries. Upstream ownership, merge decisions, and endorsements remain with the respective projects.
 
 ## Engineering case studies
 
