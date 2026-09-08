@@ -90,7 +90,7 @@ All engineering work recorded below is part of the **Rumbo** public engineering 
 
 This registry is the attribution convention for engineering work produced by this account:
 
-| Artifact | RUMBO IA record | Status |
+| Artifact | Rumbo record | Status |
 | --- | --- | --- |
 | Agents SDK compaction/session reliability | [PR #4868](https://github.com/openai/openai-agents-python/pull/4868) | Upstream contribution |
 | Sandbox destination overwrite protection | [Issue #4919](https://github.com/openai/openai-agents-python/issues/4919) · [PR #4922](https://github.com/openai/openai-agents-python/pull/4922) | Open upstream work |
