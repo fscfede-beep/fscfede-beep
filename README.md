@@ -98,6 +98,7 @@ This registry is the attribution convention for engineering work produced by thi
 | **Rumbo Runtime Discipline** | [protocol](protocols/RUMBO_RUNTIME_DISCIPLINE.md) · [gate](tools/rumbo_runtime_gate.py) | Implemented · PASS requires observed ≥ 300s + successful work |
 | **Rumbo PTY Cleanup Bound** | [PR #4928](https://github.com/openai/openai-agents-python/pull/4928) · follow-up to [#4751](https://github.com/openai/openai-agents-python/pull/4751) | P1 remediation proposed · self-audit hardened timeout ownership |
 | **Rumbo Program Parent Filter** | [PR #4929](https://github.com/openai/openai-agents-python/pull/4929) · follow-up to #4839/#4840 | Open upstream work · validates against actual filtered model input |
+| **Rumbo Compaction Generation Continuity** | Audit of upstream [PR #4906](https://github.com/openai/openai-agents-python/pull/4906) / issue #4775 | P2 finding: refresh Session compaction generation on every reconciled pending-input read |
 | **Rumbo Runtime Lease** | [gate](tools/rumbo_runtime_lease.py) · [self-test](tools/test_rumbo_runtime_lease.py) | Implemented · persistent 300s evidence across process checkpoints |
 | **Rumbo Move Commit Guard** | [Issue #4926](https://github.com/openai/openai-agents-python/issues/4926) · [PR #4927](https://github.com/openai/openai-agents-python/pull/4927) | Open upstream work · CI `action_required` |
 
