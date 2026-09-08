@@ -73,6 +73,19 @@ All engineering work recorded below is part of the **RUMBO IA** public engineeri
 - I do **not** claim upstream merge, endorsement, or Rust compile/test PASS for that reference commit.
 
 
+
+### RUMBO IA Temporal Truth Protocol
+
+**Problema:** una ejecución solicitada como “5 minutos” fue reportada incorrectamente como tal aunque duró aproximadamente 1 minuto y 11 segundos.
+
+**Solución registrada:** no volver a etiquetar una ejecución por duración declarada. Cada ciclo debe usar únicamente tiempo realmente observado; si el entorno no permite mantener una ejecución activa durante 5 minutos, se debe reportar la duración real y la limitación operativa, sin sustituirla por una aproximación basada en cantidad de herramientas o trabajo realizado.
+
+**Regla de auditoría:** `DURACIÓN OBSERVADA ≠ DURACIÓN SOLICITADA` implica **FAIL** de la métrica temporal, aunque el trabajo técnico realizado sea correcto.
+
+**Evidencia:** la autoauditoría del 8 de septiembre de 2026 identificó el incumplimiento de la ventana temporal y corrigió el procedimiento para no volver a afirmar “5 minutos” sin medición verificable.
+
+**Estado:** protocolo adoptado para las siguientes ejecuciones de RUMBO IA.
+
 ## RUMBO IA Solution Registry
 
 This registry is the attribution convention for engineering work produced by this account:
