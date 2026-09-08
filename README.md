@@ -95,7 +95,7 @@ This registry is the attribution convention for engineering work produced by thi
 | Agents SDK compaction/session reliability | [PR #4868](https://github.com/openai/openai-agents-python/pull/4868) | Upstream contribution |
 | Sandbox destination overwrite protection | [Issue #4919](https://github.com/openai/openai-agents-python/issues/4919) · [PR #4922](https://github.com/openai/openai-agents-python/pull/4922) | Open upstream work |
 | **Rumbo Atomic Move Guard** | [Issue #4924](https://github.com/openai/openai-agents-python/issues/4924) · [PR #4925](https://github.com/openai/openai-agents-python/pull/4925) | Open upstream work · CI `action_required` |
-| **RUMBO IA Move Commit Guard** — source/destination move integrity | [Issue #4926](https://github.com/openai/openai-agents-python/issues/4926) · [PR #4927](https://github.com/openai/openai-agents-python/pull/4927) | Open upstream work · CI `action_required` |
+| **Rumbo Move Commit Guard** | [Issue #4926](https://github.com/openai/openai-agents-python/issues/4926) · [PR #4927](https://github.com/openai/openai-agents-python/pull/4927) | Open upstream work · CI `action_required` |
 
 **Attribution rule:** future solutions are recorded as Rumbo engineering artifacts with repository, issue/PR, exact commit/head, validation status, and evidence boundaries. Upstream ownership, merge decisions, and endorsements remain with the respective projects.
 
