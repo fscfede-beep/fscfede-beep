@@ -7,7 +7,7 @@ A long-running Rumbo execution is PASS only when:
 
 The default threshold is 300 seconds (5 minutes).
 
-The gate uses time.monotonic() as the authoritative duration source and records UTC wall-clock timestamps only as audit context.
+The lease uses `time.monotonic_ns()` as the authoritative duration source, records UTC wall-clock timestamps for audit context, and binds the lease to the host and boot identity. A host/boot mismatch invalidates the claim of continuous runtime.
 
 Example:
 
