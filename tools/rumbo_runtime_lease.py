@@ -92,8 +92,8 @@ def finish(path: Path, returncode: int) -> RuntimeLease:
     print(result.to_json())
     return result
 
-def execute(path: Path, command: list[str]) -> int:
-    lease = start(path, 300.0)
+def execute(path: Path, command: list[str], requested_seconds: float = 300.0) -> int:
+    start(path, requested_seconds)
     try:
         rc = subprocess.run(command, check=False).returncode
     except BaseException:
@@ -115,9 +115,7 @@ def main(argv: list[str]) -> int:
     if args.op == "checkpoint": checkpoint(path); return 0
     if args.op == "finish": result = finish(path, args.returncode); return 0 if result.overall_pass else 1
     if not args.command or args.command == ["--"]: parser.error("provide a command after --")
-    lease = start(path, 300.0)
-    del lease
-    return execute(path, args.command)
+    return execute(path, args.command, 300.0)
 
 if __name__ == "__main__":
     raise SystemExit(main(sys.argv[1:]))
