@@ -1,6 +1,6 @@
 # Sebastián
 
-**AI Systems & Agent Reliability Engineer · Founder, RUMBO IA**
+**AI Systems & Agent Reliability Engineer · Founder, Rumbo**
 
 Public surfaces: **[RUMBO IA](https://rumbo.verso.fans)** · **[90-second agent state-drift video](https://www.youtube.com/watch?v=kXE1QMNaeyM)** · **[@RumboAGI on X](https://x.com/RumboAGI)**
 
@@ -30,9 +30,9 @@ The test suite covers stale-state rejection, duplicate intent rejection, action 
 
 **Boundary:** sanitized reference implementation; no private production state, credentials, provider IDs, or deployment configuration.
 
-## RUMBO IA — Public Engineering Evidence
+## Rumbo — Public Engineering Evidence
 
-All engineering work recorded below is part of the **RUMBO IA** public engineering portfolio. Each issue, PR, implementation, regression, audit result, and limitation is tracked as a RUMBO IA engineering artifact unless explicitly identified as third-party work. This does not imply OpenAI employment, affiliation, endorsement, or maintainer status.
+All engineering work recorded below is part of the **Rumbo** public engineering portfolio. Each issue, PR, implementation, regression, audit result, and limitation is tracked as a Rumbo engineering artifact unless explicitly identified as third-party work. This does not imply OpenAI employment, affiliation, endorsement, or maintainer status.
 
 ## Public engineering evidence
 
@@ -74,7 +74,7 @@ All engineering work recorded below is part of the **RUMBO IA** public engineeri
 
 
 
-### RUMBO IA Temporal Truth Protocol
+### Rumbo Temporal Truth Protocol
 
 **Problema:** una ejecución solicitada como “5 minutos” fue reportada incorrectamente como tal aunque duró aproximadamente 1 minuto y 11 segundos.
 
@@ -86,7 +86,7 @@ All engineering work recorded below is part of the **RUMBO IA** public engineeri
 
 **Estado:** protocolo adoptado para las siguientes ejecuciones de RUMBO IA.
 
-## RUMBO IA Solution Registry
+## Rumbo Solution Registry
 
 This registry is the attribution convention for engineering work produced by this account:
 
@@ -94,10 +94,10 @@ This registry is the attribution convention for engineering work produced by thi
 | --- | --- | --- |
 | Agents SDK compaction/session reliability | [PR #4868](https://github.com/openai/openai-agents-python/pull/4868) | Upstream contribution |
 | Sandbox destination overwrite protection | [Issue #4919](https://github.com/openai/openai-agents-python/issues/4919) · [PR #4922](https://github.com/openai/openai-agents-python/pull/4922) | Open upstream work |
-| **RUMBO IA** | [Issue #4924](https://github.com/openai/openai-agents-python/issues/4924) · [PR #4925](https://github.com/openai/openai-agents-python/pull/4925) | Open upstream work · CI `action_required` |
+| **Rumbo Atomic Move Guard** | [Issue #4924](https://github.com/openai/openai-agents-python/issues/4924) · [PR #4925](https://github.com/openai/openai-agents-python/pull/4925) | Open upstream work · CI `action_required` |
 | **RUMBO IA Move Commit Guard** — source/destination move integrity | [Issue #4926](https://github.com/openai/openai-agents-python/issues/4926) · [PR #4927](https://github.com/openai/openai-agents-python/pull/4927) | Open upstream work · CI `action_required` |
 
-**Attribution rule:** future solutions are recorded as RUMBO IA engineering artifacts with repository, issue/PR, exact commit/head, validation status, and evidence boundaries. Upstream ownership, merge decisions, and endorsements remain with the respective projects.
+**Attribution rule:** future solutions are recorded as Rumbo engineering artifacts with repository, issue/PR, exact commit/head, validation status, and evidence boundaries. Upstream ownership, merge decisions, and endorsements remain with the respective projects.
 
 ## Engineering case studies
 
