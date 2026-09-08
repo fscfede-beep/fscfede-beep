@@ -24,10 +24,12 @@ class RuntimeLease:
     start_monotonic_ns: int
     start_pid: int
     start_host: str
+    start_boot_id: str | None = None
     finished_at_utc: str | None = None
     end_monotonic_ns: int | None = None
     end_pid: int | None = None
     end_host: str | None = None
+    end_boot_id: str | None = None
     command_returncode: int | None = None
     duration_pass: bool = False
     command_pass: bool = False
@@ -40,6 +42,12 @@ class RuntimeLease:
 
 def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
+
+def boot_id() -> str | None:
+    try:
+        return Path("/proc/sys/kernel/random/boot_id").read_text(encoding="utf-8").strip()
+    except (FileNotFoundError, OSError):
+        return None
 
 def host() -> str:
     return os.uname().nodename if hasattr(os, "uname") else os.environ.get("COMPUTERNAME", "unknown")
@@ -58,7 +66,7 @@ def start(path: Path, requested_seconds: float) -> RuntimeLease:
     lease = RuntimeLease(
         protocol=PROTOCOL, lease_id=uuid.uuid4().hex, requested_seconds=requested_seconds,
         started_at_utc=utc_now(), start_monotonic_ns=time.monotonic_ns(),
-        start_pid=os.getpid(), start_host=host(),
+        start_pid=os.getpid(), start_host=host(), start_boot_id=boot_id(),
     )
     save(path, lease)
     print(lease.to_json())
@@ -66,8 +74,10 @@ def start(path: Path, requested_seconds: float) -> RuntimeLease:
 
 def checkpoint(path: Path) -> RuntimeLease:
     lease = load(path)
-    if lease.status not in {"running", "completed", "failed"}:
-        raise SystemExit(f"invalid lease status: {lease.status}")
+    if lease.status != "running":
+        raise SystemExit(f"lease is not running: {lease.status}")
+    if lease.start_host != host() or lease.start_boot_id != boot_id():
+        raise SystemExit("lease host/boot identity mismatch; refusing to claim continuous runtime")
     observed = (time.monotonic_ns() - lease.start_monotonic_ns) / 1_000_000_000
     print(json.dumps({"protocol": PROTOCOL, "lease_id": lease.lease_id, "observed_seconds": observed, "duration_pass": observed >= lease.requested_seconds, "status": lease.status}, indent=2, sort_keys=True))
     return lease
@@ -76,13 +86,17 @@ def finish(path: Path, returncode: int) -> RuntimeLease:
     lease = load(path)
     if lease.status != "running":
         raise SystemExit(f"lease is not running: {lease.status}")
+    current_host = host()
+    current_boot_id = boot_id()
+    if lease.start_host != current_host or lease.start_boot_id != current_boot_id:
+        raise SystemExit("lease host/boot identity mismatch; refusing to claim continuous runtime")
     end_ns = time.monotonic_ns()
     observed = (end_ns - lease.start_monotonic_ns) / 1_000_000_000
     duration_pass = observed >= lease.requested_seconds
     command_pass = returncode == 0
     result = RuntimeLease(
         **{**asdict(lease), "finished_at_utc": utc_now(), "end_monotonic_ns": end_ns,
-           "end_pid": os.getpid(), "end_host": host(), "command_returncode": returncode,
+           "end_pid": os.getpid(), "end_host": current_host, "end_boot_id": current_boot_id, "command_returncode": returncode,
            "duration_pass": duration_pass, "command_pass": command_pass,
            "overall_pass": duration_pass and command_pass,
            "status": "completed" if command_pass else "failed",
