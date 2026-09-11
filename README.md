@@ -1,6 +1,6 @@
 # Sebastián
 
-**AI Systems & Agent Reliability | Business × Technology × Operations · Founder, RUMBO**
+**AI Systems & Agent Reliability | Business × Technology × Operations · Founder, RUMBO IA**
 
 Public surfaces: **[RUMBO IA](https://rumbo.verso.fans)** · **[90-second agent state-drift video](https://www.youtube.com/watch?v=kXE1QMNaeyM)** · **[@RumboAGI on X](https://x.com/RumboAGI)**
 
