@@ -1,6 +1,6 @@
 # Sebastián
 
-**AI Systems & Agent Reliability Engineer · Founder, Rumbo**
+**AI Systems & Agent Reliability | Business × Technology × Operations · Founder, RUMBO**
 
 Public surfaces: **[RUMBO IA](https://rumbo.verso.fans)** · **[90-second agent state-drift video](https://www.youtube.com/watch?v=kXE1QMNaeyM)** · **[@RumboAGI on X](https://x.com/RumboAGI)**
 
@@ -24,11 +24,17 @@ The test suite covers stale-state rejection, duplicate intent rejection, action 
 
 **90-second video:** [An Accepted Agent Action Is Not Necessarily Executable](https://www.youtube.com/watch?v=kXE1QMNaeyM) demonstrates the same fail-closed state-drift boundary and the negative observation `blocked_target_mutated=False`.
 
-**Current verification:** repository `main` is `e54f48a5117c9c10b60f15f6941d8fc7f909d7e1`, tree `a0f37f103d87b5fa762a7cc1f15bdf26861ca5dc`. [PR #12](https://github.com/fscfede-beep/verifiable-agent-control-plane/pull/12) ran the 72-test suite successfully on Python 3.11/3.12/3.13 in [GitHub Actions run 34054304431](https://github.com/fscfede-beep/verifiable-agent-control-plane/actions/runs/34054304431); the merged `main` tree is exactly the audited candidate tree.
+**Current repository state:** `main` is `bdd87b12eee16561fa4c4d9af00dfde75eb79493`. The latest observed `Twin Bridge Verification` on this exact head completed successfully in [GitHub Actions run 34546878899](https://github.com/fscfede-beep/verifiable-agent-control-plane/actions/runs/34546878899). The earlier 72-test PR evidence applies to its cited audited candidate; I do not project that exact matrix onto newer commits without a fresh exact-head run.
 
 **Release evidence:** [`v0.2.0`](https://github.com/fscfede-beep/verifiable-agent-control-plane/releases/tag/v0.2.0) is tagged at `ed3bb2684743376fdf2769ee378ca614c913e3d4`; that exact release tag passed source installation, the **16-test** suite, and outside-checkout import verification on Python **3.11, 3.12, and 3.13** in [GitHub Actions run #11](https://github.com/fscfede-beep/verifiable-agent-control-plane/actions/runs/33805162344).
 
 **Boundary:** sanitized reference implementation; no private production state, credentials, provider IDs, or deployment configuration.
+
+### [RUMBO Agent Reliability - minimal public reference](https://github.com/RUMBO-IA/Rumbo/tree/main/systems/agent-reliability)
+
+A deliberately small deterministic reference showing `Capability ≠ Authorization ≠ Execution ≠ Verified Outcome`, with seven explicit reliability scenarios, a privacy-safe public receipt, and explicit claim boundaries.
+
+**Published state:** merged through [RUMBO IA PR #86](https://github.com/RUMBO-IA/Rumbo/pull/86) at `main` `0ef4d5bbfef1f225e0b7a00c52f3f1c32f620956`; both the pull-request and post-push `Public privacy gate` and `RUMBO Agent Reliability CI` completed successfully. Production reliability and third-party validation are not claimed.
 
 ## Rumbo — Public Engineering Evidence
 
