@@ -1,147 +1,105 @@
-# Sebastián
+# Federico César
 
-**AI Systems & Agent Reliability | Business × Technology × Operations · Founder, RUMBO IA**
+**Founder, RUMBO · Applied AI · Automation · Agent Reliability · Systems**
 
-Public surfaces: **[RUMBO IA](https://rumbo.verso.fans)** · **[90-second agent state-drift video](https://www.youtube.com/watch?v=kXE1QMNaeyM)** · **[@RumboAGI on X](https://x.com/RumboAGI)**
+RUMBO turns bold ideas into systems that can be built, tested, operated, and improved in the real world.
 
-I build agentic systems where **intent, authority, execution, observed effect, and promotion are separate, testable states**.
+**Ideas into action.**
 
-`INTENT → AUTHORITY → PREFLIGHT → EXECUTION → READBACK → FALSIFICATION → CLOSURE`
+[Website](https://rumbo.verso.fans) · [YouTube](https://www.youtube.com/@rumboagi) · [X / @RumboAGI](https://x.com/RumboAGI) · [RUMBO on GitHub](https://github.com/RUMBO-IA)
 
-My focus is failure-boundary engineering: async resource ownership, cancellation safety, fail-closed execution, tool and permission routing, deterministic evaluation, canonical-state recovery, and verifiable effects.
+---
 
-## Start here — original engineering work
+## What I build
 
-### [Verifiable Agent Control Plane](https://github.com/fscfede-beep/verifiable-agent-control-plane)
+- **AI agents** with explicit authority, execution, readback, and verification boundaries.
+- **Automation systems** for real business workflows, not demo-only flows.
+- **Bots and operational interfaces** for customer service, lead handling, internal knowledge, and process execution.
+- **Dashboards and control planes** for observable, auditable AI operations.
+- **Developer tooling and reliability infrastructure** for long-running, consequential agent workflows.
 
-An installable, runtime-dependency-free Python reference implementation for fail-closed agent execution with exact-state binding, deterministic revalidation, effect readback, replay prevention, and hash-bound receipts.
+## Reliability thesis
 
-The test suite covers stale-state rejection, duplicate intent rejection, action allowlisting, secret-like payload rejection, readback mismatch, receipt-chain verification, tamper detection, and replay prevention.
+A model choosing the right action is not enough.
 
-**Developer quickstart:** [5-minute Reliability Quickstart](https://github.com/fscfede-beep/verifiable-agent-control-plane/blob/main/docs/QUICKSTART.md) walks through `INTENT → AUTHORITY → MATERIALIZATION → READBACK → RECEIPT → VERIFICATION`.
+```text
+INTENT → AUTHORITY → PREFLIGHT → EXECUTION → READBACK → FALSIFICATION → CLOSURE
+```
 
-**Technical deep dive:** [An accepted agent action is not necessarily executable](https://github.com/fscfede-beep/verifiable-agent-control-plane/blob/main/docs/STATE_DRIFT_AFTER_DECISION.md) explains `DECISION_ACCEPTED != EXECUTION_SAFE` and the exact pre-effect state-drift guard.
+Reliable agent systems keep the authorized action, executed action, observed effect, and evidence about that effect consistent across failures.
 
-**90-second video:** [An Accepted Agent Action Is Not Necessarily Executable](https://www.youtube.com/watch?v=kXE1QMNaeyM) demonstrates the same fail-closed state-drift boundary and the negative observation `blocked_target_mutated=False`.
+## Start here
 
-**Current repository state:** `main` is `bdd87b12eee16561fa4c4d9af00dfde75eb79493`. The latest observed `Twin Bridge Verification` on this exact head completed successfully in [GitHub Actions run 34546878899](https://github.com/fscfede-beep/verifiable-agent-control-plane/actions/runs/34546878899). The earlier 72-test PR evidence applies to its cited audited candidate; I do not project that exact matrix onto newer commits without a fresh exact-head run.
+### Verifiable Agent Control Plane
 
-**Release evidence:** [`v0.2.0`](https://github.com/fscfede-beep/verifiable-agent-control-plane/releases/tag/v0.2.0) is tagged at `ed3bb2684743376fdf2769ee378ca614c913e3d4`; that exact release tag passed source installation, the **16-test** suite, and outside-checkout import verification on Python **3.11, 3.12, and 3.13** in [GitHub Actions run #11](https://github.com/fscfede-beep/verifiable-agent-control-plane/actions/runs/33805162344).
+[github.com/fscfede-beep/verifiable-agent-control-plane](https://github.com/fscfede-beep/verifiable-agent-control-plane)
 
-**Boundary:** sanitized reference implementation; no private production state, credentials, provider IDs, or deployment configuration.
+A Python reference implementation for fail-closed agent execution with exact-state binding, deterministic revalidation, effect readback, replay prevention, and hash-bound receipts.
 
-### [RUMBO Agent Reliability - minimal public reference](https://github.com/RUMBO-IA/Rumbo/tree/main/systems/agent-reliability)
+### RUMBO Agent Reliability
 
-A deliberately small deterministic reference showing `Capability ≠ Authorization ≠ Execution ≠ Verified Outcome`, with seven explicit reliability scenarios, a privacy-safe public receipt, and explicit claim boundaries.
+[github.com/RUMBO-IA/Rumbo](https://github.com/RUMBO-IA/Rumbo)
 
-**Published state:** merged through [RUMBO IA PR #86](https://github.com/RUMBO-IA/Rumbo/pull/86) at `main` `0ef4d5bbfef1f225e0b7a00c52f3f1c32f620956`; both the pull-request and post-push `Public privacy gate` and `RUMBO Agent Reliability CI` completed successfully. Production reliability and third-party validation are not claimed.
+Public engineering artifacts around the boundary:
 
-## Rumbo — Public Engineering Evidence
+```text
+Capability ≠ Authorization ≠ Execution ≠ Verified Outcome
+```
 
-All engineering work recorded below is part of the **Rumbo** public engineering portfolio. Each issue, PR, implementation, regression, audit result, and limitation is tracked as a Rumbo engineering artifact unless explicitly identified as third-party work. This does not imply OpenAI employment, affiliation, endorsement, or maintainer status.
+### RUMBO Guardian
 
-## Public engineering evidence
+[github.com/RUMBO-IA/rumbo-guardian](https://github.com/RUMBO-IA/rumbo-guardian)
 
-> Independent public engineering activity. These links do not imply OpenAI employment, affiliation, endorsement, or maintainer status. Authorship and merge state are stated explicitly per item.
+Privacy-first security intelligence with explainable scoring and tamper-evident evidence.
 
-### OpenAI Codex plugin for Claude Code
+## Public engineering work
 
-- Authored [PR #730 — optionally consume task prompt files](https://github.com/openai/codex-plugin-cc/pull/730), implementing the smallest opt-in fix proposed in [issue #622](https://github.com/openai/codex-plugin-cc/issues/622).
-- The patch adds `--prompt-file-consume` with `READ → DELETE → DISPATCH` ordering, preserves ordinary `--prompt-file` behavior, and rejects consume mode without a prompt file.
-- Validation on the exact upstream base: RED 1/3 → GREEN 3/3 focused runtime regressions, 28/28 non-runtime tests, Node syntax check, TypeScript compile, version check, and `git diff --check` PASS. Upstream workflow execution is currently gated on maintainer approval for fork Actions; I do **not** claim merge or acceptance.
-- An independent public reviewer later endorsed the `READ → DELETE → DISPATCH` ownership order and the three regressions. I classify that only as independent technical review; formal maintainer/OpenAI status was not verified.
+I publish engineering work around agent infrastructure, developer tooling, async lifecycle safety, state drift, permission boundaries, deterministic evaluation, and canonical-state recovery.
 
-### OpenAI Go SDK
+Selected public work includes contributions, issues, reviews, and reference implementations around:
 
-- Authored [PR #885 — clarify Bedrock Mantle model-family API roots](https://github.com/openai/openai-go/pull/885), a documentation-only upstream contribution tied to [issue #812](https://github.com/openai/openai-go/issues/812). The change preserves the existing `/openai/v1` default and documents the explicit `BaseURL` path for model families whose AWS model card requires `/v1`.
-- I do **not** claim merge or maintainer endorsement unless the upstream PR state later proves it.
+- OpenAI Agents SDK
+- OpenAI Codex
+- OpenAI Go SDK
+- agent execution safety and state-drift protection
+- cancellation-safe resource ownership
+- verifiable effect and evidence boundaries
 
-### OpenAI Agents SDK
+**Important boundary:** public contributions and reviews do not imply employment, affiliation, endorsement, or maintainer status by OpenAI or any other upstream project unless explicitly stated by that project.
 
-- **RUMBO IA engineering record:** [PR #4925 — introduce no-replace move capability](https://github.com/openai/openai-agents-python/pull/4925), arising from [issue #4924](https://github.com/openai/openai-agents-python/issues/4924) and the earlier [#4919](https://github.com/openai/openai-agents-python/issues/4919) overwrite finding. The work introduces a `BaseSandboxSession.move_no_replace()` capability boundary, explicit `AtomicMoveUnsupportedError`, Unix-local no-replace handling, a temporary-file transfer path in `WorkspaceEditor`, and an explicit distinction between native atomic semantics and portable non-replace-safe fallback. The upstream PR remains open; no merge or endorsement is claimed.
-- **RUMBO IA engineering record:** [PR #4922 — fail closed on existing move destinations](https://github.com/openai/openai-agents-python/pull/4922), implementing the application-level protection for the destination-overwrite defect plus shared-session concurrency regression coverage. The upstream PR remains open; no merge or endorsement is claimed.
+## RUMBO product direction
 
-- Authored [PR #4868 — reset compaction response-chain state after a successful `pop_item()`](https://github.com/openai/openai-agents-python/pull/4868), fixing [issue #4867](https://github.com/openai/openai-agents-python/issues/4867). Current head is `f7b71a6dc704883cf5aa6ad5e6693dfed45cedb2`, based directly on upstream `main` `02c205f9574c765a265ce102dc55da81cdd74b89`; the PR remains limited to the compaction-session implementation and tests. The current branch adds deterministic coverage for destructive pop/clear invalidation, stale response-chain rejection, concurrent history races, deferred retry restoration after replacement failure, and backends that mutate while returning `None` from `pop_item()`. The latest author-side validation recorded on the prior exact head was **73 focused compaction-session tests** and **223 memory tests** passing, plus targeted Ruff, mypy, Pyright, and `git diff --check`; the new follow-up commits still require fresh runtime/CI verification. GitHub's exact-head Actions state is not currently available for the new follow-up head, so I do **not** label this CI PASS or FAIL, and no merge or acceptance is claimed.
-- Authored [#4747 — PTY teardown can be abandoned after registry removal](https://github.com/openai/openai-agents-python/issues/4747), focused on cancellation-safe resource ownership after registry removal.
-- Authored [#4749 — PTY startup cancellation can leak unregistered resources](https://github.com/openai/openai-agents-python/issues/4749), focused on the pre-registration ownership boundary.
-- Reviewed [PR #4750](https://github.com/openai/openai-agents-python/pull/4750) and [PR #4751](https://github.com/openai/openai-agents-python/pull/4751) around cleanup ownership, cancellation propagation, and regression coverage.
+**Applied AI to build, operate, and scale.**
 
-### OpenAI Python SDK
+- Bots
+- Automation
+- Dashboards
+- AI agents
+- Operational systems
+- Reliability and control infrastructure
 
-- Reviewed [PR #3780](https://github.com/openai/openai-python/pull/3780) around fail-closed CI dependency-gate ordering, scheduler semantics, and non-success dependency states.
-- Publicly corrected a stale review blocker after re-reading the exact head revision.
+The operating principle is simple: **evidence over hype**.
 
-### OpenAI Codex
-
-- Revalidated the code-mode tool-output boundary reported in [issue #42367](https://github.com/openai/codex/issues/42367), authored by another contributor.
-- Published a concrete reference implementation in my fork: [`fscfede-beep/codex@9e70016`](https://github.com/fscfede-beep/codex/commit/9e700160e7c77deb373610b58d05d5d54e060d82).
-- Published and merged [RUMBO PR #28 — Codex thread scope evidence](https://github.com/RUMBO-IA/Rumbo/pull/28), a sanitized fail-closed scope-binding probe with 38/38 local regressions and exact-head privacy, scope-binding, and Vercel checks passing; no upstream mutation or root-cause claim.
-- I do **not** claim upstream merge, endorsement, or Rust compile/test PASS for that reference commit.
-
-
-
-### Rumbo Temporal Truth Protocol
-
-**Problema:** una ejecución solicitada como “5 minutos” fue reportada incorrectamente como tal aunque duró aproximadamente 1 minuto y 11 segundos.
-
-**Solución registrada:** no volver a etiquetar una ejecución por duración declarada. Cada ciclo debe usar únicamente tiempo realmente observado; si el entorno no permite mantener una ejecución activa durante 5 minutos, se debe reportar la duración real y la limitación operativa, sin sustituirla por una aproximación basada en cantidad de herramientas o trabajo realizado.
-
-**Regla de auditoría:** `DURACIÓN OBSERVADA ≠ DURACIÓN SOLICITADA` implica **FAIL** de la métrica temporal, aunque el trabajo técnico realizado sea correcto.
-
-**Evidencia:** la autoauditoría del 8 de septiembre de 2026 identificó el incumplimiento de la ventana temporal y corrigió el procedimiento para no volver a afirmar “5 minutos” sin medición verificable.
-
-**Estado:** protocolo adoptado para las siguientes ejecuciones de RUMBO IA.
-
-## Rumbo Solution Registry
-
-This registry is the attribution convention for engineering work produced by this account:
-
-| Artifact | Rumbo record | Status |
-| --- | --- | --- |
-| Agents SDK compaction/session reliability | [PR #4868](https://github.com/openai/openai-agents-python/pull/4868) | Upstream contribution |
-| Sandbox destination overwrite protection | [Issue #4919](https://github.com/openai/openai-agents-python/issues/4919) · [PR #4922](https://github.com/openai/openai-agents-python/pull/4922) | Open upstream work |
-| **Rumbo Atomic Move Guard** | [Issue #4924](https://github.com/openai/openai-agents-python/issues/4924) · [PR #4925](https://github.com/openai/openai-agents-python/pull/4925) | Open upstream work · CI `action_required` |
-| **Rumbo Runtime Discipline** | [protocol](protocols/RUMBO_RUNTIME_DISCIPLINE.md) · [gate](tools/rumbo_runtime_gate.py) | Implemented · PASS requires observed ≥ 300s + successful work |
-| **Rumbo PTY Cleanup Bound** | [PR #4928](https://github.com/openai/openai-agents-python/pull/4928) · follow-up to [#4751](https://github.com/openai/openai-agents-python/pull/4751) | P1 remediation proposed · self-audit hardened timeout ownership |
-| **Rumbo Program Parent Filter** | [PR #4929](https://github.com/openai/openai-agents-python/pull/4929) · follow-up to #4839/#4840 | Open upstream work · validates against actual filtered model input |
-| **Rumbo Exclusive Create Hardening** | [PR #4930](https://github.com/openai/openai-agents-python/pull/4930) · follow-up to #4893 | P2 hardening: bounded staging names + early collision classification |
-| **Rumbo Compaction Generation Continuity** | Audit of upstream [PR #4906](https://github.com/openai/openai-agents-python/pull/4906) / issue #4775 | P2 finding: refresh Session compaction generation on every reconciled pending-input read |
-| **Rumbo Runtime Lease** | [gate](tools/rumbo_runtime_lease.py) · [self-test](tools/test_rumbo_runtime_lease.py) | Implemented · persistent 300s evidence across process checkpoints |
-| **Rumbo Move Commit Guard** | [Issue #4926](https://github.com/openai/openai-agents-python/issues/4926) · [PR #4927](https://github.com/openai/openai-agents-python/pull/4927) | Open upstream work · CI `action_required` |
-
-**Attribution rule:** future solutions are recorded as Rumbo engineering artifacts with repository, issue/PR, exact commit/head, validation status, and evidence boundaries. Upstream ownership, merge decisions, and endorsements remain with the respective projects.
-
-## Engineering case studies
-
-- **[Async Resource Ownership Under Cancellation](case-studies/async-resource-ownership.md)** — ownership transfer, cancellation-settled teardown, exception precedence, attempt-all cleanup.
-- **[Fail-Closed CI Gates](case-studies/fail-closed-ci-gates.md)** — required-job scheduler semantics, dependency failure propagation, pre-checkout guards, reviewer self-correction.
-- **[Tool Output Policy Boundaries](case-studies/tool-output-policy-boundaries.md)** — caller-requested budgets, model truncation policy, and context-safety boundaries.
-
-## Current technical focus
+## Current focus
 
 - agent harnesses and long-running execution;
-- async lifecycle and cancellation safety;
 - MCP, plugins, connectors, and tool routing;
 - permission and policy boundaries;
 - deterministic evals and regression testing;
 - canonical-state recovery and effect verification;
-- verifiable control planes for consequential agent actions.
+- production-oriented AI automation;
+- public technical communication and open engineering artifacts.
 
-## Product and systems work
+## Public channel
 
-- **[RUMBO IA repository](https://github.com/RUMBO-IA/Rumbo)** — human-controlled AI CRM and workflow automation with public privacy and verification gates.
-- **[RUMBO Guardian](https://github.com/RUMBO-IA/rumbo-guardian)** — privacy-first, local-first security intelligence with explainable scoring and a tamper-evident SHA-256 Evidence Ledger.
-- **[VAE Bindings](https://github.com/fscfede-beep/vae-bindings)** — public privacy-preserving commitments and GitHub attestations for agent work-unit bindings.
-- **[RUMBO IA website](https://rumbo.verso.fans)** — product surface for small businesses in Latin America.
-- **[@RumboAGI on X](https://x.com/RumboAGI)** — public product, evidence, and engineering updates.
-- **[Technical portfolio](https://sebastian-ai-workflow-reliability.miniup.app)** — selected work in AI workflow and agent reliability.
+**RUMBO IA on YouTube:** [@rumboagi](https://www.youtube.com/@rumboagi)
 
-## Reliability thesis
+Current engineering video: [An Accepted Agent Action Is Not Necessarily Executable](https://www.youtube.com/watch?v=kXE1QMNaeyM)
 
-An agent is not reliable merely because it selected the right action. Reliability requires the authorized action, the executed action, the observed effect, and the evidence about that effect to remain consistent across failures.
+---
 
-## Evidence boundary
+### RUMBO
 
-I deliberately distinguish authored issues, reviews, reference implementations, upstream code authorship, merge state, endorsement, employment, and production status.
+**Applied AI · Automation · Systems**
 
-I am open to engineering roles and technical collaboration in **agent reliability, developer tooling, applied AI, and agent infrastructure**.
+**Build what’s next.**
