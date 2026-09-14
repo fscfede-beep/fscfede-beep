@@ -1,6 +1,6 @@
 # Federico César
 
-**Founder, RUMBO · Applied AI · Automation · Agent Reliability · Systems**
+**Founder, RUMBO · AI Systems & Agent Reliability · Applied AI · Automation**
 
 RUMBO builds applied AI systems that help ambitious teams **build, operate, and scale**.
 
@@ -66,8 +66,8 @@ I publish engineering work around agent infrastructure, developer tooling, async
 
 Selected public work includes:
 
+- **OpenAI Codex plugin for Claude Code:** authored the current upstream PR series [#725](https://github.com/openai/codex-plugin-cc/pull/725), [#727](https://github.com/openai/codex-plugin-cc/pull/727), [#728](https://github.com/openai/codex-plugin-cc/pull/728), [#729](https://github.com/openai/codex-plugin-cc/pull/729), [#730](https://github.com/openai/codex-plugin-cc/pull/730), [#731](https://github.com/openai/codex-plugin-cc/pull/731), [#732](https://github.com/openai/codex-plugin-cc/pull/732), [#733](https://github.com/openai/codex-plugin-cc/pull/733), [#734](https://github.com/openai/codex-plugin-cc/pull/734), [#737](https://github.com/openai/codex-plugin-cc/pull/737), and [#738](https://github.com/openai/codex-plugin-cc/pull/738). The work spans Windows process safety, exact-thread resume, stale-worker reconciliation, relocated config transfer, prompt-file ownership, durable review-gate state, explicit review JSON contracts, persist-before-spawn ordering, thread-title sanitization, minimal-PATH Node resolution, and durable background rescue/cancellation lifecycle handling.
 - **OpenAI Agents SDK:** authored [issue #4749](https://github.com/openai/openai-agents-python/issues/4749) on PTY startup cancellation and pre-registration ownership. Upstream [PR #4750](https://github.com/openai/openai-agents-python/pull/4750), authored by another contributor, explicitly states that it fixes reachable ownership gaps described in that issue and is merged upstream. I do not claim authorship of the merged PR.
-- **Codex plugin for Claude Code:** authored [PR #730](https://github.com/openai/codex-plugin-cc/pull/730), introducing an opt-in `READ → DELETE → DISPATCH` ownership boundary for consumed prompt files. The PR remains open unless its upstream state later proves otherwise.
 - **OpenAI Go SDK:** authored [PR #885](https://github.com/openai/openai-go/pull/885), a documentation-only clarification for Bedrock Mantle model-family API roots. No SDK behavior change or maintainer endorsement is claimed.
 
 **Claim boundary:** public issues, contributions, and reviews do not imply employment, affiliation, endorsement, or maintainer status by OpenAI or any other upstream project unless explicitly stated by that project.
