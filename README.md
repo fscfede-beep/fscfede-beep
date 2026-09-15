@@ -10,6 +10,18 @@ RUMBO builds applied AI systems that help ambitious teams **build, operate, and 
 
 ---
 
+## Operating model
+
+```text
+INTENT → AUTHORITY → PREFLIGHT → EXECUTION → READBACK → FALSIFICATION → CLOSURE
+```
+
+A second invariant I use throughout RUMBO:
+
+```text
+Capability ≠ Authorization ≠ Execution ≠ Verified Outcome
+```
+
 ## What I build
 
 - **AI agents** with explicit authority, execution, readback, and verification boundaries.
@@ -18,21 +30,17 @@ RUMBO builds applied AI systems that help ambitious teams **build, operate, and 
 - **Dashboards and control planes** for observable, auditable AI operations.
 - **Developer tooling and reliability infrastructure** for long-running, consequential agent workflows.
 
-## Reliability thesis
+## Tooling
 
-A model choosing the right action is not enough.
+**AI & Agents** — OpenAI · Codex · Claude Code · Ollama · MCP · agent harnesses
 
-```text
-INTENT → AUTHORITY → PREFLIGHT → EXECUTION → READBACK → FALSIFICATION → CLOSURE
-```
+**Application** — Python · TypeScript · JavaScript · Node.js · React · Next.js
 
-Reliable agent systems keep the authorized action, executed action, observed effect, and evidence about that effect consistent across failures.
+**Data & Backend** — PostgreSQL · Supabase · SQLite
 
-A second invariant I use throughout RUMBO:
+**Operations** — GitHub Actions · Git · Docker · Linux/WSL · Windows
 
-```text
-Capability ≠ Authorization ≠ Execution ≠ Verified Outcome
-```
+**Verification** — deterministic tests · exact-state binding · readback · evidence ledgers · fail-closed controls
 
 ## Start here
 
@@ -59,6 +67,12 @@ Public engineering artifacts around agent authority, execution, verification, an
 [github.com/RUMBO-IA/rumbo-guardian](https://github.com/RUMBO-IA/rumbo-guardian)
 
 Privacy-first security intelligence with explainable scoring and tamper-evident evidence.
+
+### RUMBO Control Queue
+
+[github.com/RUMBO-IA/rumbo-control-queue](https://github.com/RUMBO-IA/rumbo-control-queue)
+
+Governance and control infrastructure for repository state, evidence, execution boundaries, and merge gates.
 
 ## Public engineering evidence
 
